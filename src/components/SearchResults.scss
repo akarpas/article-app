@@ -3,7 +3,7 @@
     display: flex;
     flex-flow: column;
     top: 20;
-    left: 0;
+    left: calc(50% - 100px - 5px - 1px);
     background-color: rgba(0,0,0,0.8);
     color: white;
 }

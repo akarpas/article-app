@@ -8,3 +8,16 @@
     padding: 5px 0;
     top: 17.5vh;
 }
+
+.search {
+    position: relative;
+}
+
+.search > input {
+    width: 200px;
+    height: 20px;
+    border: 1px solid black;
+    outline: none;
+    padding: 5px;
+    font-size: 1.25rem;
+}
