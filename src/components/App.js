@@ -5,6 +5,8 @@ import Search from './Search';
 import Article from './Article';
 import Footer from './Footer';
 
+import style from './App.scss';
+
 import { data } from '../data/articles.json';
 
 const App = () => {
@@ -39,7 +41,7 @@ const App = () => {
     };
 
     return (
-        <React.Fragment>
+        <div className={style.appContainer}>
             <Header articleTitle={articleTitle} />
             <Search
                 updateSearchInput={updateSearchInput}
@@ -64,7 +66,7 @@ const App = () => {
                 updateArticleIndex={updateArticleIndex}
                 currentArticleIndex={currentArticleIndex}
             />
-        </React.Fragment>
+        </div>
     );
 };
 
