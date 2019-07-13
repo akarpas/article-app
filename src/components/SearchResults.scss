@@ -1,0 +1,24 @@
+.resultsContainer {
+    position: absolute;
+    display: flex;
+    flex-flow: column;
+    top: 20;
+    left: 0;
+    background-color: rgba(0,0,0,0.8);
+    color: white;
+}
+
+.resultsContainer > a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    width: 400px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+}
+
+.resultsContainer > a:hover {
+    color: lightgray;
+}
