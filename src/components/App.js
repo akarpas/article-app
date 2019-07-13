@@ -10,6 +10,7 @@ import { data } from '../data/articles.json';
 const App = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [isSearch, setIsSearch] = useState(false);
+    const [articleTitle, setArticleTitle] = useState('');
     const [currentArticleIndex, setCurrentArticleIndex] = useState(0);
     const numberOfArticles = data.length;
 
@@ -28,6 +29,10 @@ const App = () => {
         }
     };
 
+    const updateArticleTitle = title => {
+        setArticleTitle(title);
+    }
+
     const updateSearchInput = () => {
         setSearchTerm('');
         setIsSearch(false);
@@ -35,7 +40,7 @@ const App = () => {
 
     return (
         <React.Fragment>
-            <Header />
+            <Header articleTitle={articleTitle} />
             <Search
                 updateSearchInput={updateSearchInput}
                 isSearch={isSearch}
@@ -47,7 +52,7 @@ const App = () => {
                 <Route
                     path="/article/:index"
                     render={() => (
-                        <Article updateArticleIndex={updateArticleIndex} />
+                        <Article updateArticleIndex={updateArticleIndex} updateArticleTitle={updateArticleTitle} />
                     )}
                 />
             </Switch>

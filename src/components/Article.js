@@ -11,7 +11,7 @@ const IMG_BASE_URL = '<img src="https://cdn2.audiencemedia.com';
 
 const Article = props => {
     const [body, setBody] = useState('<div></div>');
-    const { match, updateArticleIndex } = props;
+    const { match, updateArticleIndex, updateArticleTitle } = props;
     const { params } = match;
     const { index } = params;
     const article = data[index];
@@ -23,6 +23,7 @@ const Article = props => {
 
     useEffect(() => {
         updateArticleIndex(index);
+        updateArticleTitle(article.title);
         setBody(parseBody(article.body));
     }, [params]);
 
@@ -47,5 +48,6 @@ export default withRouter(Article);
 
 Article.propTypes = {
     updateArticleIndex: PropTypes.func,
+    updateArticleTitle: PropTypes.func,
     match: PropTypes.object
 };
