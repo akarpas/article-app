@@ -1,16 +1,23 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useState } from 'react';
 import SearchResults from './SearchResults';
 
 import style from './Search.scss';
 
-const Search = props => {
-    const {
-        handleInputChange,
-        searchTerm,
-        isSearch,
-        updateSearchInput
-    } = props;
+const Search = () => {
+    const [searchTerm, setSearchTerm] = useState('');
+    const [isSearch, setIsSearch] = useState(false);
+
+    const handleInputChange = event => {
+        const { target } = event;
+        const { value } = target;
+        setSearchTerm(value);
+        setIsSearch(value !== '');
+    };
+
+    const updateSearchInput = () => {
+        setSearchTerm('');
+        setIsSearch(false);
+    };
 
     return (
         <div className={style.searchWrapper}>
@@ -32,10 +39,3 @@ const Search = props => {
 };
 
 export default Search;
-
-Search.propTypes = {
-    handleInputChange: PropTypes.func,
-    updateSearchInput: PropTypes.func,
-    searchTerm: PropTypes.string,
-    isSearch: PropTypes.bool
-};

@@ -10,8 +10,6 @@ import style from './App.scss';
 import { data } from '../data/articles.json';
 
 const App = () => {
-    const [searchTerm, setSearchTerm] = useState('');
-    const [isSearch, setIsSearch] = useState(false);
     const [hasArticle, setHasArticle] = useState(false);
     const [articleTitle, setArticleTitle] = useState('');
     const [currentArticleIndex, setCurrentArticleIndex] = useState(0);
@@ -21,31 +19,14 @@ const App = () => {
         setCurrentArticleIndex(Number(articleIndex));
     };
 
-    const handleInputChange = event => {
-        const { target } = event;
-        const { value } = target;
-        setSearchTerm(value);
-        setIsSearch(value !== '');
-    };
-
     const updateArticleTitle = title => {
         setArticleTitle(title);
-    };
-
-    const updateSearchInput = () => {
-        setSearchTerm('');
-        setIsSearch(false);
     };
 
     return (
         <div className={style.appContainer}>
             <Header articleTitle={articleTitle} />
-            <Search
-                updateSearchInput={updateSearchInput}
-                isSearch={isSearch}
-                searchTerm={searchTerm}
-                handleInputChange={handleInputChange}
-            />
+            <Search />
             <Switch>
                 <Redirect exact from="/" to="/article/0" />
                 <Route
