@@ -8,6 +8,7 @@ const Footer = props => {
     const { numberOfArticles, currentArticleIndex } = props;
     const [hasPrevious, setHasPrevious] = useState(false);
     const [hasNext, setHasNext] = useState(true);
+    const lastIndex = numberOfArticles - 1;
 
     useEffect(() => {
         if (
@@ -31,12 +32,28 @@ const Footer = props => {
         <div className={style.footerContainer}>
             <div className={style.previous}>
                 {hasPrevious && (
-                    <Link to={`/article/${currentArticleIndex - 1}`}>Previous</Link>
+                    <Link
+                        to={`/article/${
+                            currentArticleIndex === 0
+                                ? 0
+                                : currentArticleIndex - 1
+                        }`}
+                    >
+                        Previous
+                    </Link>
                 )}
             </div>
             <div className={style.next}>
                 {hasNext && (
-                    <Link to={`/article/${currentArticleIndex + 1}`}>Next</Link>
+                    <Link
+                        to={`/article/${
+                            numberOfArticles === lastIndex
+                                ? lastIndex
+                                : currentArticleIndex + 1
+                        }`}
+                    >
+                        Next
+                    </Link>
                 )}
             </div>
         </div>
