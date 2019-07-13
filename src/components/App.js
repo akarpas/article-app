@@ -25,11 +25,7 @@ const App = () => {
         const { target } = event;
         const { value } = target;
         setSearchTerm(value);
-        if (value === '') {
-            setIsSearch(false);
-        } else {
-            setIsSearch(true);
-        }
+        setIsSearch(value !== '');
     };
 
     const updateArticleTitle = title => {

@@ -5,11 +5,10 @@ import { formatTitle } from '../utils/format';
 
 import style from './SearchResults.scss';
 
-import ARTICLES from '../data/articles.json';
+import { data } from '../data/articles.json';
 
 const SearchResults = props => {
     const { searchTerm, updateSearchInput } = props;
-    const { data } = ARTICLES;
     const [filteredArticles, setFilteredArticles] = useState([]);
 
     const filterArticles = dataToFilter => {
