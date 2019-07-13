@@ -31,7 +31,7 @@ const App = () => {
 
     const updateArticleTitle = title => {
         setArticleTitle(title);
-    }
+    };
 
     const updateSearchInput = () => {
         setSearchTerm('');
@@ -52,7 +52,10 @@ const App = () => {
                 <Route
                     path="/article/:index"
                     render={() => (
-                        <Article updateArticleIndex={updateArticleIndex} updateArticleTitle={updateArticleTitle} />
+                        <Article
+                            updateArticleIndex={updateArticleIndex}
+                            updateArticleTitle={updateArticleTitle}
+                        />
                     )}
                 />
             </Switch>

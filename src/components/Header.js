@@ -8,7 +8,7 @@ const Header = props => {
             <h1>Articles</h1>
             <h3>{articleTitle}</h3>
         </div>
-    )
+    );
 };
 
 export default Header;
