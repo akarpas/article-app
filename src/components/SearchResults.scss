@@ -6,9 +6,17 @@
     left: calc(50% - 150px - 5px - 1px);
     background-color: rgba(0,0,0,0.9);
     color: white;
+    max-height: 75vh;
+    overflow-y: scroll;
 }
 
-.resultsContainer > a {
+.results {
+    display: flex;
+    flex-flow: column;
+    height: auto;
+}
+
+.results > a {
     color: white;
     font-weight: bold;
     text-decoration: none;
@@ -20,6 +28,6 @@
     border-bottom: 1px solid rgba(255,255,255,0.3);
 }
 
-.resultsContainer > a:hover {
+.results > a:hover {
     color: lightgray;
 }

@@ -41,15 +41,17 @@ const SearchResults = props => {
 
     return (
         <div className={style.resultsContainer}>
-            {filteredArticles.map((article, index) => (
-                <Link
-                    onClick={updateSearchInput}
-                    to={`/article/${article.index}`}
-                    key={article + index}
-                >
-                    {formatTitle(article.title)}
-                </Link>
-            ))}
+            <div className={style.results}>
+                {filteredArticles.map((article, index) => (
+                    <Link
+                        onClick={updateSearchInput}
+                        to={`/article/${article.index}`}
+                        key={article + index}
+                    >
+                        {formatTitle(article.title)}
+                    </Link>
+                ))}
+            </div>
         </div>
     );
 };
