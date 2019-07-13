@@ -1,10 +1,11 @@
 import React, { useLayoutEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import ARTICLES from '../data/articles.json';
 import style from './SearchResults.scss';
 
 const SearchResults = props => {
-    const { searchTerm } = props;
+    const { searchTerm, updateSearchInput } = props;
     const { data } = ARTICLES;
     const [filteredArticles, setFilteredArticles] = useState([]);
 
@@ -38,7 +39,13 @@ const SearchResults = props => {
     return (
         <div className={style.resultsContainer}>
             {filteredArticles.map((article, index) => (
-                <div key={article + index}>{article.title}</div>
+                <Link
+                    onClick={updateSearchInput}
+                    to={`/article/${article.index}`}
+                    key={article + index}
+                >
+                    {article.title}
+                </Link>
             ))}
         </div>
     );
@@ -47,5 +54,6 @@ const SearchResults = props => {
 export default SearchResults;
 
 SearchResults.propTypes = {
-    searchTerm: PropTypes.string
+    searchTerm: PropTypes.string,
+    updateSearchInput: PropTypes.func
 };

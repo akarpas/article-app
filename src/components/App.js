@@ -13,7 +13,7 @@ const App = () => {
     const [currentArticleIndex, setCurrentArticleIndex] = useState(0);
     const numberOfArticles = data.length;
 
-    const updateArticleIndex = (articleIndex) => {
+    const updateArticleIndex = articleIndex => {
         setCurrentArticleIndex(Number(articleIndex));
     };
 
@@ -22,21 +22,40 @@ const App = () => {
         const { value } = target;
         setSearchTerm(value);
         if (value === '') {
-            setIsSearch(false)
+            setIsSearch(false);
         } else {
-            setIsSearch(true)
+            setIsSearch(true);
         }
-    }
+    };
+
+    const updateSearchInput = () => {
+        setSearchTerm('');
+        setIsSearch(false);
+    };
 
     return (
         <React.Fragment>
             <Header />
-            <Search isSearch={isSearch} searchTerm={searchTerm} handleInputChange={handleInputChange} />
+            <Search
+                updateSearchInput={updateSearchInput}
+                isSearch={isSearch}
+                searchTerm={searchTerm}
+                handleInputChange={handleInputChange}
+            />
             <Switch>
                 <Redirect exact from="/" to="/article/0" />
-                <Route path="/article/:index" render={() => <Article updateArticleIndex={updateArticleIndex} />} />
+                <Route
+                    path="/article/:index"
+                    render={() => (
+                        <Article updateArticleIndex={updateArticleIndex} />
+                    )}
+                />
             </Switch>
-            <Footer numberOfArticles={numberOfArticles} updateArticleIndex={updateArticleIndex} currentArticleIndex={currentArticleIndex} />
+            <Footer
+                numberOfArticles={numberOfArticles}
+                updateArticleIndex={updateArticleIndex}
+                currentArticleIndex={currentArticleIndex}
+            />
         </React.Fragment>
     );
 };
