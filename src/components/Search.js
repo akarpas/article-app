@@ -9,8 +9,10 @@ const Search = props => {
 
     return (
         <div className={style.searchWrapper}>
-            <input value={searchTerm} onChange={handleInputChange} />
-            {isSearch && <SearchResults updateSearchInput={updateSearchInput} searchTerm={searchTerm.toLowerCase()} />}
+            <div className={style.search}>
+                <input placeholder="Search Articles" value={searchTerm} onChange={handleInputChange} />
+                {isSearch && <SearchResults updateSearchInput={updateSearchInput} searchTerm={searchTerm.toLowerCase()} />}
+            </div>
         </div>
     );
 };
