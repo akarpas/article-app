@@ -15,7 +15,10 @@ const Footer = props => {
     useEffect(() => {
         const isFirstPage = currentArticleIndex === 0;
         const isLastPage = numberOfArticles === currentArticleIndex + 1;
-        setNavigationStatus({ showPrevious: !isFirstPage, showNext: !isLastPage });
+        setNavigationStatus({
+            showPrevious: !isFirstPage,
+            showNext: !isLastPage
+        });
     }, [currentArticleIndex]);
 
     const previousPage =
