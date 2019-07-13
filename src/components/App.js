@@ -15,13 +15,10 @@ const App = () => {
     const [currentArticleIndex, setCurrentArticleIndex] = useState(0);
     const numberOfArticles = data.length;
 
-    const updateArticleIndex = articleIndex => {
+    const updateArticleIndex = articleIndex =>
         setCurrentArticleIndex(Number(articleIndex));
-    };
 
-    const updateArticleTitle = title => {
-        setArticleTitle(title);
-    };
+    const updateArticleTitle = title => setArticleTitle(title);
 
     return (
         <div className={style.appContainer}>
@@ -35,7 +32,7 @@ const App = () => {
                         <Article
                             updateArticleIndex={updateArticleIndex}
                             updateArticleTitle={updateArticleTitle}
-                            setHasArticle={(set) => setHasArticle(set)}
+                            setHasArticle={set => setHasArticle(set)}
                         />
                     )}
                 />
