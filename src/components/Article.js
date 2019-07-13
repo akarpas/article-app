@@ -5,6 +5,8 @@ import ReactHtmlParser from 'react-html-parser';
 
 import { data } from '../data/articles.json';
 
+import style from './Article.scss';
+
 const IMG_BASE_URL = '<img src="https://cdn2.audiencemedia.com';
 
 const Article = props => {
@@ -32,7 +34,7 @@ const Article = props => {
                         <span key={author + i}>{author}</span>
                     ))}
             </h3>
-            <div>{ReactHtmlParser(body)}</div>
+            <div className={style.articleBody}>{ReactHtmlParser(body)}</div>
         </div>
     );
 };
