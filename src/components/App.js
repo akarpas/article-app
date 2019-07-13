@@ -1,5 +1,15 @@
 import React from 'react';
 
-const App = () => <h1>Articles</h1>;
+import Header from './Header';
+import Content from './Content';
+import Footer from './Footer';
+
+const App = () => (
+    <React.Fragment>
+        <Header />
+        <Content />
+        <Footer />
+    </React.Fragment>
+);
 
 export default App;
