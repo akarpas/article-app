@@ -13,14 +13,9 @@ const SearchResults = props => {
 
     const filterArticles = dataToFilter => {
         return [...dataToFilter]
-            .map((article, index) => {
-                return {
-                    ...article,
-                    index
-                };
-            })
-            .filter(article => {
-                return (
+            .map((article, index) => ({ ...article, index }))
+            .filter(
+                article =>
                     article &&
                     (article.body.toLowerCase().includes(searchTerm) ||
                         article.title.toLowerCase().includes(searchTerm) ||
@@ -29,8 +24,7 @@ const SearchResults = props => {
                                 .toString()
                                 .toLowerCase()
                                 .includes(searchTerm)))
-                );
-            });
+            );
     };
 
     useLayoutEffect(() => {
