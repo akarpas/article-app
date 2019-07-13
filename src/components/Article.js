@@ -12,14 +12,18 @@ const IMG_BASE_URL = '<img src="https://cdn2.audiencemedia.com';
 
 const Article = props => {
     const [body, setBody] = useState('<div></div>');
-    const { match, updateArticleIndex, updateArticleTitle, setHasArticle } = props;
+    const {
+        match,
+        updateArticleIndex,
+        updateArticleTitle,
+        setHasArticle
+    } = props;
     const { params } = match;
     const { index } = params;
     const article = data[index];
 
-    const parseBody = bodyContent => {
-        return bodyContent.replace(new RegExp('<img src="', 'g'), IMG_BASE_URL);
-    };
+    const parseBody = bodyContent =>
+        bodyContent.replace(new RegExp('<img src="', 'g'), IMG_BASE_URL);
 
     useEffect(() => {
         if (article) {
