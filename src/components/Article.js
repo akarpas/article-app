@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import ReactHtmlParser from 'react-html-parser';
@@ -10,21 +10,25 @@ import style from './Article.scss';
 const IMG_BASE_URL = '<img src="https://cdn2.audiencemedia.com';
 
 const Article = props => {
+    const [body, setBody] = useState("<div></div>")
     const { match, updateArticleIndex } = props;
     const { params } = match;
     const { index } = params;
     const article = data[index];
     const { authors } = article;
 
-    useEffect(() => {
-        updateArticleIndex(index);
-    }, [params]);
-
-    const parseBody = body => {
-        return body.replace(new RegExp('<img src="', 'g'), IMG_BASE_URL);
+    const parseBody = bodyContent => {
+        return bodyContent.replace(new RegExp('<img src="', 'g'), IMG_BASE_URL);
     };
 
-    const body = parseBody(article.body);
+    useEffect(() => {
+        updateArticleIndex(index);
+        setBody(parseBody(article.body))
+    }, [params]);
+
+
+
+    // const body = parseBody(article.body);
 
     return (
         <div>
