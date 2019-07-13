@@ -11,18 +11,19 @@ const Footer = props => {
     const lastIndex = numberOfArticles - 1;
 
     useEffect(() => {
-        if (
-            currentArticleIndex !== 0 &&
-            currentArticleIndex - 1 < numberOfArticles
-        ) {
+        const firstPage = currentArticleIndex === 0;
+        const lastPage = numberOfArticles === currentArticleIndex + 1;
+        const middlePage = !firstPage && !lastPage;
+
+        if (middlePage ) {
             setHasNext(true);
             setHasPrevious(true);
         }
-        if (numberOfArticles === currentArticleIndex + 1) {
+        if (lastPage) {
             setHasNext(false);
             setHasPrevious(true);
         }
-        if (currentArticleIndex === 0) {
+        if (firstPage) {
             setHasNext(true);
             setHasPrevious(false);
         }
