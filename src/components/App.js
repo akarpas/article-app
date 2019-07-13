@@ -12,6 +12,7 @@ import { data } from '../data/articles.json';
 const App = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [isSearch, setIsSearch] = useState(false);
+    const [hasArticle, setHasArticle] = useState(false);
     const [articleTitle, setArticleTitle] = useState('');
     const [currentArticleIndex, setCurrentArticleIndex] = useState(0);
     const numberOfArticles = data.length;
@@ -57,11 +58,13 @@ const App = () => {
                         <Article
                             updateArticleIndex={updateArticleIndex}
                             updateArticleTitle={updateArticleTitle}
+                            setHasArticle={(set) => setHasArticle(set)}
                         />
                     )}
                 />
             </Switch>
             <Footer
+                hasArticle={hasArticle}
                 numberOfArticles={numberOfArticles}
                 updateArticleIndex={updateArticleIndex}
                 currentArticleIndex={currentArticleIndex}

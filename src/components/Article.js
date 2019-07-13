@@ -12,7 +12,7 @@ const IMG_BASE_URL = '<img src="https://cdn2.audiencemedia.com';
 
 const Article = props => {
     const [body, setBody] = useState('<div></div>');
-    const { match, updateArticleIndex, updateArticleTitle } = props;
+    const { match, updateArticleIndex, updateArticleTitle, setHasArticle } = props;
     const { params } = match;
     const { index } = params;
     const article = data[index];
@@ -25,8 +25,11 @@ const Article = props => {
         if (article) {
             updateArticleIndex(index);
             updateArticleTitle(article.title);
+            setHasArticle(true);
             setBody(parseBody(article.body));
             window.scrollTo(0, 0);
+        } else {
+            setHasArticle(false);
         }
     }, [params]);
 
