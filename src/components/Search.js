@@ -5,13 +5,27 @@ import SearchResults from './SearchResults';
 import style from './Search.scss';
 
 const Search = props => {
-    const { handleInputChange, searchTerm, isSearch, updateSearchInput } = props;
+    const {
+        handleInputChange,
+        searchTerm,
+        isSearch,
+        updateSearchInput
+    } = props;
 
     return (
         <div className={style.searchWrapper}>
             <div className={style.search}>
-                <input placeholder="Search Articles" value={searchTerm} onChange={handleInputChange} />
-                {isSearch && <SearchResults updateSearchInput={updateSearchInput} searchTerm={searchTerm.toLowerCase()} />}
+                <input
+                    placeholder="Search Articles"
+                    value={searchTerm}
+                    onChange={handleInputChange}
+                />
+                {isSearch && (
+                    <SearchResults
+                        updateSearchInput={updateSearchInput}
+                        searchTerm={searchTerm.toLowerCase()}
+                    />
+                )}
             </div>
         </div>
     );
