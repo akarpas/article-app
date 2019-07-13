@@ -10,9 +10,9 @@ const Search = props => {
     return (
         <div className={style.searchWrapper}>
             <input value={searchTerm} onChange={handleInputChange} />
-            {isSearch && <SearchResults/> }
+            {isSearch && <SearchResults />}
         </div>
-    )
+    );
 };
 
 export default Search;
