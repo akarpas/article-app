@@ -25,6 +25,7 @@ const Article = props => {
         updateArticleIndex(index);
         updateArticleTitle(article.title);
         setBody(parseBody(article.body));
+        window.scrollTo(0, 0);
     }, [params]);
 
     return (
