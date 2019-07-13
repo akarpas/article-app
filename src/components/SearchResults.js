@@ -8,8 +8,8 @@ const SearchResults = props => {
     const { data } = ARTICLES;
     const [filteredArticles, setFilteredArticles] = useState([]);
 
-    useLayoutEffect(() => {
-        const filtered = [...data]
+    const filterArticles = dataToFilter => {
+        return [...dataToFilter]
             .map((article, index) => {
                 return {
                     ...article,
@@ -28,6 +28,10 @@ const SearchResults = props => {
                                 .includes(searchTerm)))
                 );
             });
+    };
+
+    useLayoutEffect(() => {
+        const filtered = filterArticles(data);
         setFilteredArticles(filtered);
     }, [searchTerm]);
 
