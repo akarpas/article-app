@@ -29,12 +29,16 @@ const Footer = props => {
 
     return (
         <div className={style.footerContainer}>
-            {hasPrevious && (
-                <Link to={`/article/${currentArticleIndex - 1}`}>Prev</Link>
-            )}
-            {hasNext && (
-                <Link to={`/article/${currentArticleIndex + 1}`}>Next</Link>
-            )}
+            <div className={style.previous}>
+                {hasPrevious && (
+                    <Link to={`/article/${currentArticleIndex - 1}`}>Previous</Link>
+                )}
+            </div>
+            <div className={style.next}>
+                {hasNext && (
+                    <Link to={`/article/${currentArticleIndex + 1}`}>Next</Link>
+                )}
+            </div>
         </div>
     );
 };

@@ -2,11 +2,24 @@
     position: fixed;
     display: flex;
     flex-flow: row;
-    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
     bottom: 0;
     left: 0;
     background-color: black;
     color: white;
     width: 100vw;
-    height: 3vh;
+    height: 5vh;
+}
+
+.previous, .next {
+    min-width: 75px;
+}
+
+.previous > a,
+.next > a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.4rem;
 }
