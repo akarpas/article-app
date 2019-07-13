@@ -1,0 +1,12 @@
+.noMatchContainer {
+    padding: 0 20px;
+    margin-top: calc(17.5vh + 50px);
+    margin-bottom: 5vh;
+    max-width: calc(100vw - 40px);
+}
+
+@media screen and (min-width: 600px) {
+    .noMatchContainer {
+        margin-top: calc(14vh + 50px);
+    }
+}
