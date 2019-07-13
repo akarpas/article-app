@@ -10,7 +10,7 @@ import style from './Article.scss';
 const IMG_BASE_URL = '<img src="https://cdn2.audiencemedia.com';
 
 const Article = props => {
-    const [body, setBody] = useState("<div></div>")
+    const [body, setBody] = useState('<div></div>');
     const { match, updateArticleIndex } = props;
     const { params } = match;
     const { index } = params;
@@ -23,20 +23,20 @@ const Article = props => {
 
     useEffect(() => {
         updateArticleIndex(index);
-        setBody(parseBody(article.body))
+        setBody(parseBody(article.body));
     }, [params]);
-
-
-
-    // const body = parseBody(article.body);
 
     return (
         <div>
             <h3>
-                {authors &&
+                <span>Authors: </span>
+                {authors ? (
                     article.authors.map((author, i) => (
                         <span key={author + i}>{author}</span>
-                    ))}
+                    ))
+                ) : (
+                    <span>n/a</span>
+                )}
             </h3>
             <div className={style.articleBody}>{ReactHtmlParser(body)}</div>
         </div>
