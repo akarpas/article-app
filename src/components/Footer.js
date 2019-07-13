@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
+import style from './Footer.scss';
+
 const Footer = props => {
     const { numberOfArticles, currentArticleIndex } = props;
     const [hasPrevious, setHasPrevious] = useState(false);
@@ -26,8 +28,7 @@ const Footer = props => {
     }, [currentArticleIndex]);
 
     return (
-        <div>
-            <h3>Footer</h3>
+        <div className={style.footerContainer}>
             {hasPrevious && (
                 <Link to={`/article/${currentArticleIndex - 1}`}>Prev</Link>
             )}

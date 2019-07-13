@@ -28,7 +28,7 @@ const Article = props => {
     }, [params]);
 
     return (
-        <div>
+        <div className={style.articleContainer}>
             <h3>
                 <span>Authors: </span>
                 {authors ? (
