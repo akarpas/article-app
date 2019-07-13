@@ -1,7 +1,19 @@
 .resultsContainer {
     position: absolute;
+    display: flex;
+    flex-flow: column;
     top: 20;
     left: 0;
     background-color: rgba(0,0,0,0.8);
     color: white;
+}
+
+.resultsContainer > a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.resultsContainer > a:hover {
+    color: lightgray;
 }
