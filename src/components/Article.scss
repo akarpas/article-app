@@ -17,3 +17,9 @@
         width: 350px;
     }
 }
+
+@media screen and (min-width: 600px) {
+    .articleContainer {
+        margin-top: calc(14vh + 50px);
+    }
+}

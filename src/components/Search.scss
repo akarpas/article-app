@@ -21,3 +21,9 @@
     padding: 5px;
     font-size: 1.25rem;
 }
+
+@media screen and (min-width: 600px) {
+    .searchWrapper {
+        top: 14vh;
+    }
+}
