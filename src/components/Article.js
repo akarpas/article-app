@@ -4,8 +4,6 @@ import PropTypes from 'prop-types';
 import ReactHtmlParser from 'react-html-parser';
 import NoMatch from './NoMatch';
 
-import { data } from '../data/articles.json';
-
 import style from './Article.scss';
 
 const IMG_BASE_URL = '<img src="https://cdn2.audiencemedia.com';
@@ -16,11 +14,12 @@ const Article = props => {
         match,
         updateArticleIndex,
         updateArticleTitle,
-        setHasArticle
+        setHasArticle,
+        articles
     } = props;
     const { params } = match;
     const { index } = params;
-    const article = data[index];
+    const article = articles[index];
 
     const parseBody = bodyContent =>
         bodyContent.replace(new RegExp('<img src="', 'g'), IMG_BASE_URL);
@@ -63,5 +62,7 @@ export default withRouter(Article);
 Article.propTypes = {
     updateArticleIndex: PropTypes.func,
     updateArticleTitle: PropTypes.func,
+    setHasArticle: PropTypes.func,
+    articles: PropTypes.array,
     match: PropTypes.object
 };

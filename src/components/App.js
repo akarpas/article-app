@@ -30,6 +30,7 @@ const App = () => {
                     path="/article/:index"
                     render={() => (
                         <Article
+                            articles={data}
                             updateArticleIndex={updateArticleIndex}
                             updateArticleTitle={updateArticleTitle}
                             setHasArticle={set => setHasArticle(set)}
