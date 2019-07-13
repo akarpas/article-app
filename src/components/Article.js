@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import ReactHtmlParser from 'react-html-parser';
+import NoMatch from './NoMatch';
 
 import { data } from '../data/articles.json';
 
@@ -15,24 +16,25 @@ const Article = props => {
     const { params } = match;
     const { index } = params;
     const article = data[index];
-    const { authors } = article;
 
     const parseBody = bodyContent => {
         return bodyContent.replace(new RegExp('<img src="', 'g'), IMG_BASE_URL);
     };
 
     useEffect(() => {
-        updateArticleIndex(index);
-        updateArticleTitle(article.title);
-        setBody(parseBody(article.body));
-        window.scrollTo(0, 0);
+        if (article) {
+            updateArticleIndex(index);
+            updateArticleTitle(article.title);
+            setBody(parseBody(article.body));
+            window.scrollTo(0, 0);
+        }
     }, [params]);
 
-    return (
+    const content = article ? (
         <div className={style.articleContainer}>
             <h3>
                 <span>Authors: </span>
-                {authors ? (
+                {article.authors ? (
                     article.authors.map((author, i) => (
                         <span key={author + i}>{author}</span>
                     ))
@@ -42,7 +44,11 @@ const Article = props => {
             </h3>
             <div className={style.articleBody}>{ReactHtmlParser(body)}</div>
         </div>
+    ) : (
+        <NoMatch />
     );
+
+    return content;
 };
 
 export default withRouter(Article);
