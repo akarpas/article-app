@@ -15,7 +15,7 @@ const Footer = props => {
             setHasNext(true);
             setHasPrevious(true);
         }
-        if (numberOfArticles === currentArticleIndex - 1) {
+        if (numberOfArticles === currentArticleIndex + 1) {
             setHasNext(false);
             setHasPrevious(true);
         }
