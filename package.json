@@ -1,0 +1,7 @@
+{
+  "name": "articles-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Andreas Karpasitis <karpasitis@outlook.com>",
+  "license": "MIT"
+}
