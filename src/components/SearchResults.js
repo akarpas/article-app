@@ -1,6 +1,7 @@
 import React, { useLayoutEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { formatTitle } from '../utils/format';
 import ARTICLES from '../data/articles.json';
 import style from './SearchResults.scss';
 
@@ -44,7 +45,7 @@ const SearchResults = props => {
                     to={`/article/${article.index}`}
                     key={article + index}
                 >
-                    {article.title}
+                    {formatTitle(article.title)}
                 </Link>
             ))}
         </div>
