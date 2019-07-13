@@ -12,6 +12,10 @@
     color: white;
     font-weight: bold;
     text-decoration: none;
+    width: 400px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .resultsContainer > a:hover {
