@@ -1,12 +1,19 @@
 .articleContainer {
     padding: 0 20px;
-    margin-top: 200px;
+    margin-top: calc(17.5vh + 50px);
     margin-bottom: 5vh;
+    max-width: calc(100vw - 40px);
 }
 
 .articleBody > div > img {
     float: left;
     padding-right: 10px;
-    height: 200px;
-    width: auto;
+    width: 200px;
+    height: auto;
+}
+
+@media screen and (min-width: 800px) {
+    .articleBody > div > img {
+        width: 350px;
+    }
 }
