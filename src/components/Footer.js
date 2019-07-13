@@ -6,27 +6,13 @@ import style from './Footer.scss';
 
 const Footer = props => {
     const { numberOfArticles, currentArticleIndex, hasArticle } = props;
-    const [hasPrevious, setHasPrevious] = useState(false);
-    const [hasNext, setHasNext] = useState(true);
+    const [pageStatus, setPageStatus] = useState({ showPrevious: false, showNext: true });
     const lastIndex = numberOfArticles - 1;
 
     useEffect(() => {
-        const firstPage = currentArticleIndex === 0;
-        const lastPage = numberOfArticles === currentArticleIndex + 1;
-        const middlePage = !firstPage && !lastPage;
-
-        if (middlePage ) {
-            setHasNext(true);
-            setHasPrevious(true);
-        }
-        if (lastPage) {
-            setHasNext(false);
-            setHasPrevious(true);
-        }
-        if (firstPage) {
-            setHasNext(true);
-            setHasPrevious(false);
-        }
+        const isFirstPage = currentArticleIndex === 0;
+        const isLastPage = numberOfArticles === currentArticleIndex + 1;
+        setPageStatus({ showPrevious: !isFirstPage, showNext: !isLastPage });
     }, [currentArticleIndex]);
 
     const previousPage =
@@ -39,14 +25,14 @@ const Footer = props => {
             {hasArticle && (
                 <React.Fragment>
                     <div className={style.previous}>
-                        {hasPrevious && (
+                        {pageStatus.showPrevious && (
                             <Link to={`/article/${previousPage}`}>
                                 Previous
                             </Link>
                         )}
                     </div>
                     <div className={style.next}>
-                        {hasNext && (
+                        {pageStatus.showNext && (
                             <Link to={`/article/${nextPage}`}>Next</Link>
                         )}
                     </div>
