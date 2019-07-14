@@ -3,6 +3,8 @@ import SearchResults from './SearchResults';
 
 import style from './Search.scss';
 
+const PLACEHOLDER_TEXT = 'Search Articles';
+
 const Search = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [isSearch, setIsSearch] = useState(false);
@@ -27,7 +29,7 @@ const Search = () => {
         <div className={style.searchWrapper}>
             <div className={style.search}>
                 <input
-                    placeholder="Search Articles"
+                    placeholder={PLACEHOLDER_TEXT}
                     value={searchTerm}
                     onChange={handleInputChange}
                 />
