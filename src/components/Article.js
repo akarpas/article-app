@@ -9,6 +9,7 @@ import style from './Article.scss';
 const ENVIRONMENT = process.env.NODE_ENV;
 const IMG_BASE_URL = '<img src="https://cdn2.audiencemedia.com';
 const IMG_INVALID_TEXT = '<img src="';
+const AUTHORS_LABEL = 'Authors: ';
 
 const Article = props => {
     /* Set empty div body to avoid the body parser
@@ -36,13 +37,13 @@ const Article = props => {
     const content = article ? (
         <div className={style.articleContainer}>
             <h3>
-                <span>Authors: </span>
+                <span>{AUTHORS_LABEL}</span>
                 {article.authors ? (
                     article.authors.map((author, i) => (
-                        <span key={author + i}>{author}</span>
+                        <span key={author + i}><em>{author}</em></span>
                     ))
                 ) : (
-                    <span>n/a</span>
+                    <span><em>n/a</em></span>
                 )}
             </h3>
             <div className={style.articleBody}>{ReactHtmlParser(body)}</div>

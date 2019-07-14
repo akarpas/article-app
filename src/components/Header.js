@@ -4,11 +4,13 @@ import { formatTitle } from '../utils/format';
 
 import style from './Header.scss';
 
+const MAIN_TITLE = 'The Articles Magazine';
+
 const Header = props => {
     const { articleTitle } = props;
     return (
         <header className={style.headerContainer}>
-            <h1>The Articles Magazine</h1>
+            <h1>{MAIN_TITLE}</h1>
             <h3>{formatTitle(articleTitle)}</h3>
         </header>
     );
