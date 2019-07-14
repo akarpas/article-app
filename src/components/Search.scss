@@ -1,9 +1,11 @@
+@import '../global.scss';
+
 .searchWrapper {
     display: flex;
     flex-flow: column;
     align-items: center;
     position: fixed;
-    background-color: lightgray;
+    background-color: $secondary-bkg-color;
     width: 100vw;
     padding: 5px 0;
     top: 19vh;
@@ -16,7 +18,7 @@
 .search > input {
     width: 300px;
     height: 20px;
-    border: 1px solid black;
+    border: 1px solid $primary-border-color;
     outline: none;
     padding: 5px;
     font-size: 1.25rem;

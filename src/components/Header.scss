@@ -1,3 +1,5 @@
+@import '../global.scss';
+
 .headerContainer {
     display: flex;
     flex-flow: column;
@@ -6,8 +8,8 @@
     top: 0;
     left: 0;
     width: 100vw;
-    background-color: black;
-    color: white;
+    background-color: $primary-bkg-color;
+    color: $secondary-font-color;
     height: 19vh;
 }
 
@@ -18,7 +20,7 @@ header > h3 {
 }
 
 header > h1 {
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid $secondary-border-color;
 }
 
 @media screen and (min-width: 600px) {

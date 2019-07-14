@@ -1,3 +1,5 @@
+@import '../global.scss';
+
 .noMatchContainer {
     display: flex;
     flex-flow: column;
@@ -11,7 +13,7 @@
 .noMatchContainer > a {
     text-decoration: none;
     font-weight: bold;
-    color: black;
+    color: $primary-font-color;
     font-size: 1.75rem;
 }
 

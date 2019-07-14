@@ -1,3 +1,5 @@
+@import '../global.scss';
+
 .footerContainer {
     position: fixed;
     display: flex;
@@ -6,8 +8,8 @@
     align-items: center;
     bottom: 0;
     left: 0;
-    background-color: black;
-    color: white;
+    background-color: $primary-bkg-color;
+    color: $secondary-font-color;
     width: 100vw;
     height: 5vh;
 }
@@ -18,7 +20,7 @@
 
 .previous > a,
 .next > a {
-    color: white;
+    color: $secondary-font-color;
     font-weight: bold;
     text-decoration: none;
     font-size: 1.4rem;
