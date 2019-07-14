@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { withRouter, Route, Redirect, Switch } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import Header from './Header';
 import Search from './Search';
 import Article from './Article';
@@ -9,20 +10,23 @@ import style from './App.scss';
 
 import { data } from '../data/articles.json';
 
-const App = () => {
+const App = props => {
+    const { location } = props;
+    const { pathname } = location;
+    const param = Number(pathname.split('/')[2]);
     const [hasArticle, setHasArticle] = useState(false);
-    const [articleTitle, setArticleTitle] = useState('');
-    const [currentArticleIndex, setCurrentArticleIndex] = useState(0);
+    const [currentArticleIndex, setCurrentArticleIndex] = useState(
+        typeof param !== 'number' ? 0 : param
+    );
     const numberOfArticles = data.length;
 
-    const updateArticleIndex = articleIndex =>
-        setCurrentArticleIndex(Number(articleIndex));
-
-    const updateArticleTitle = title => setArticleTitle(title);
+    useEffect(() => {
+        setCurrentArticleIndex(Number(pathname.split('/')[2]));
+    }, [param]);
 
     return (
         <div className={style.appContainer}>
-            <Header articleTitle={articleTitle} />
+            <Header articleTitle={data[currentArticleIndex].title} />
             <Search />
             <Switch>
                 <Redirect exact from="/" to="/article/0" />
@@ -30,9 +34,7 @@ const App = () => {
                     path="/article/:index"
                     render={() => (
                         <Article
-                            articles={data}
-                            updateArticleIndex={updateArticleIndex}
-                            updateArticleTitle={updateArticleTitle}
+                            article={data[currentArticleIndex]}
                             setHasArticle={set => setHasArticle(set)}
                         />
                     )}
@@ -41,7 +43,6 @@ const App = () => {
             <Footer
                 hasArticle={hasArticle}
                 numberOfArticles={numberOfArticles}
-                updateArticleIndex={updateArticleIndex}
                 currentArticleIndex={currentArticleIndex}
             />
         </div>
@@ -49,3 +50,7 @@ const App = () => {
 };
 
 export default withRouter(App);
+
+App.propTypes = {
+    location: PropTypes.object
+};
