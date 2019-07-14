@@ -6,6 +6,7 @@ import NoMatch from './NoMatch';
 
 import style from './Article.scss';
 
+const ENVIRONMENT = process.env.NODE_ENV;
 const IMG_BASE_URL = '<img src="https://cdn2.audiencemedia.com';
 
 const Article = props => {
@@ -20,7 +21,7 @@ const Article = props => {
         bodyContent.replace(new RegExp('<img src="', 'g'), IMG_BASE_URL);
 
     useEffect(() => {
-        window.scrollTo(0, 0);
+        if (ENVIRONMENT !== 'test') window.scrollTo(0, 0);
         if (article) {
             setBody(parseBody(article.body));
         }
