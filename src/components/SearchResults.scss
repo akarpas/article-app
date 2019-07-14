@@ -28,8 +28,8 @@
     text-overflow: ellipsis;
     text-transform: uppercase;
     border-bottom: 1px solid $search-border-separator-color;
-}
 
-.results > a:hover {
-    color: $hover-font-color;
+    &:hover {
+        color: $hover-font-color;
+    }
 }

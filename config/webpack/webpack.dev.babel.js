@@ -11,7 +11,7 @@ module.exports = {
     },
     performance: {
         hints: "warning",
-        maxAssetSize: 2500000,
+        maxAssetSize: 10000000,
         maxEntrypointSize: 8500000,
         assetFilter: assetFilename => {
             return (
