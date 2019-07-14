@@ -11,6 +11,10 @@ const SearchResults = props => {
     const { searchTerm, updateSearchInput } = props;
     const [filteredArticles, setFilteredArticles] = useState([]);
 
+    /* Function to filter the results according to the keyword
+    from the input by checking title, authors and body. the "map"
+    part of the chain is to add the correct index for linking
+    to the article */
     const filterArticles = dataToFilter => {
         return [...dataToFilter]
             .map((article, index) => ({ ...article, index }))
@@ -27,6 +31,7 @@ const SearchResults = props => {
             );
     };
 
+    /* On update of search term update results */
     useLayoutEffect(() => {
         const filtered = filterArticles(data);
         setFilteredArticles(filtered);
