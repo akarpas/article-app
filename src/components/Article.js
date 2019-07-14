@@ -12,27 +12,17 @@ const Article = props => {
     const [body, setBody] = useState('<div></div>');
     const {
         match,
-        updateArticleIndex,
-        updateArticleTitle,
-        setHasArticle,
-        articles
+        article
     } = props;
     const { params } = match;
-    const { index } = params;
-    const article = articles[index];
 
     const parseBody = bodyContent =>
         bodyContent.replace(new RegExp('<img src="', 'g'), IMG_BASE_URL);
 
     useEffect(() => {
+        window.scrollTo(0, 0);
         if (article) {
-            updateArticleIndex(index);
-            updateArticleTitle(article.title);
-            setHasArticle(true);
             setBody(parseBody(article.body));
-            window.scrollTo(0, 0);
-        } else {
-            setHasArticle(false);
         }
     }, [params]);
 
@@ -60,9 +50,6 @@ const Article = props => {
 export default withRouter(Article);
 
 Article.propTypes = {
-    updateArticleIndex: PropTypes.func,
-    updateArticleTitle: PropTypes.func,
-    setHasArticle: PropTypes.func,
-    articles: PropTypes.array,
+    article: PropTypes.object,
     match: PropTypes.object
 };
