@@ -12,7 +12,6 @@ const Article = props => {
     const [body, setBody] = useState('<div></div>');
     const {
         match,
-        setHasArticle,
         article
     } = props;
     const { params } = match;
@@ -23,10 +22,7 @@ const Article = props => {
     useEffect(() => {
         window.scrollTo(0, 0);
         if (article) {
-            setHasArticle(true);
             setBody(parseBody(article.body));
-        } else {
-            setHasArticle(false);
         }
     }, [params]);
 

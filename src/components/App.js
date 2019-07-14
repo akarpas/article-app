@@ -14,11 +14,15 @@ const App = props => {
     const { location } = props;
     const { pathname } = location;
     const param = Number(pathname.split('/')[2]);
-    const [hasArticle, setHasArticle] = useState(false);
     const [currentArticleIndex, setCurrentArticleIndex] = useState(
         typeof param !== 'number' ? 0 : param
     );
     const numberOfArticles = data.length;
+    const article = data[currentArticleIndex];
+    const articleTitle = article ? article.title : '';
+    const hasArticle =
+        article &&
+        (Object.keys(article).length !== 0 || article.constructor !== Object);
 
     useEffect(() => {
         setCurrentArticleIndex(Number(pathname.split('/')[2]));
@@ -26,18 +30,13 @@ const App = props => {
 
     return (
         <div className={style.appContainer}>
-            <Header articleTitle={data[currentArticleIndex].title} />
+            <Header articleTitle={articleTitle} />
             <Search />
             <Switch>
                 <Redirect exact from="/" to="/article/0" />
                 <Route
                     path="/article/:index"
-                    render={() => (
-                        <Article
-                            article={data[currentArticleIndex]}
-                            setHasArticle={set => setHasArticle(set)}
-                        />
-                    )}
+                    render={() => <Article article={article} />}
                 />
             </Switch>
             <Footer
