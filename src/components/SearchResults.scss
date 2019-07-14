@@ -1,11 +1,13 @@
+@import '../global.scss';
+
 .resultsContainer {
     position: absolute;
     display: flex;
     flex-flow: column;
     top: 20;
     left: calc(50% - 150px - 5px - 1px);
-    background-color: rgba(0,0,0,0.9);
-    color: white;
+    background-color: $search-results-bkg-color;
+    color: $secondary-font-color;
     max-height: 75vh;
     overflow-y: scroll;
 }
@@ -17,7 +19,7 @@
 }
 
 .results > a {
-    color: white;
+    color: $secondary-font-color;;
     font-weight: bold;
     text-decoration: none;
     width: calc(300px + 10px + 2px);
@@ -25,9 +27,9 @@
     overflow: hidden;
     text-overflow: ellipsis;
     text-transform: uppercase;
-    border-bottom: 1px solid rgba(255,255,255,0.3);
+    border-bottom: 1px solid $search-border-separator-color;
 }
 
 .results > a:hover {
-    color: lightgray;
+    color: $hover-font-color;
 }
