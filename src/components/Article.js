@@ -50,7 +50,6 @@ const Article = props => {
 export default withRouter(Article);
 
 Article.propTypes = {
-    setHasArticle: PropTypes.func,
     article: PropTypes.object,
     match: PropTypes.object
 };
