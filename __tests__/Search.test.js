@@ -21,7 +21,9 @@ describe('it shows search results on adding input', () => {
     });
     it('handles input change and shows results', () => {
         const testValue = 'google';
-        wrapper.find('input').simulate('change', {target: { value: testValue }});
+        wrapper
+            .find('input')
+            .simulate('change', { target: { value: testValue } });
         wrapper.update();
         expect(wrapper.find('input').props().value).toEqual(testValue);
         expect(wrapper.find(SearchResults).length).toEqual(1);
