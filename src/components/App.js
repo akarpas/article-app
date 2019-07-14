@@ -11,6 +11,8 @@ import style from './App.scss';
 
 import { data } from '../data/articles.json';
 
+const SearchComponent = React.memo(Search);
+
 const App = props => {
     /* Get param of URL for article indexing using
     the location from props and set the current index */
@@ -40,7 +42,7 @@ const App = props => {
     return (
         <div className={style.appContainer}>
             <Header articleTitle={articleTitle} />
-            <Search />
+            <SearchComponent />
             <Switch>
                 <Redirect exact from="/" to="/article/0" />
                 <Route
