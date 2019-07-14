@@ -5,6 +5,7 @@ import Header from './Header';
 import Search from './Search';
 import Article from './Article';
 import Footer from './Footer';
+import NoMatch from './NoMatch';
 
 import style from './App.scss';
 
@@ -38,6 +39,7 @@ const App = props => {
                     path="/article/:index"
                     render={() => <Article article={article} />}
                 />
+                <Route component={NoMatch} />
             </Switch>
             <Footer
                 hasArticle={hasArticle}
