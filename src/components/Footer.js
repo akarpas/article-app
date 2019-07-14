@@ -12,6 +12,8 @@ const Footer = props => {
     });
     const lastIndex = numberOfArticles - 1;
 
+    /* On article index change determine whether previous and
+    next links to be rendered and update the state */
     useEffect(() => {
         const isFirstPage = currentArticleIndex === 0;
         const isLastPage = numberOfArticles === currentArticleIndex + 1;
@@ -21,6 +23,7 @@ const Footer = props => {
         });
     }, [currentArticleIndex]);
 
+    /* Get Previous page and Next page to use on Links */
     const previousPage =
         currentArticleIndex === 0 ? 0 : currentArticleIndex - 1;
     const nextPage =

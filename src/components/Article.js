@@ -10,6 +10,8 @@ const ENVIRONMENT = process.env.NODE_ENV;
 const IMG_BASE_URL = '<img src="https://cdn2.audiencemedia.com';
 
 const Article = props => {
+    /* Set empty div body to avoid the body parser
+    from failing */
     const [body, setBody] = useState('<div></div>');
     const {
         match,
@@ -17,9 +19,13 @@ const Article = props => {
     } = props;
     const { params } = match;
 
+    /* Function to replace the incomplete img url
+    using regex */
     const parseBody = bodyContent =>
         bodyContent.replace(new RegExp('<img src="', 'g'), IMG_BASE_URL);
 
+    /* On update of params i.e. when changing route
+    then set new parsed body using HTML Parser */
     useEffect(() => {
         if (ENVIRONMENT !== 'test') window.scrollTo(0, 0);
         if (article) {
@@ -27,6 +33,8 @@ const Article = props => {
         }
     }, [params]);
 
+    /* Conditionally render content, in case there is
+    no article to render the NoMatch component */
     const content = article ? (
         <div className={style.articleContainer}>
             <h3>

@@ -12,19 +12,27 @@ import style from './App.scss';
 import { data } from '../data/articles.json';
 
 const App = props => {
+    /* Get param of URL for article indexing using
+    the location from props and set the current index */
     const { location } = props;
     const { pathname } = location;
     const param = Number(pathname.split('/')[2]);
     const [currentArticleIndex, setCurrentArticleIndex] = useState(
         typeof param !== 'number' ? 0 : param
     );
+    /* Get number of articles from length of array
+    to use for the navigation in the footer */
     const numberOfArticles = data.length;
+    /* Get current article properties to pass to
+    the Article component */
     const article = data[currentArticleIndex];
     const articleTitle = article ? article.title : '';
     const hasArticle =
         article &&
         (Object.keys(article).length !== 0 || article.constructor !== Object);
 
+    /* On param change then change state of currentIndex using
+    location prop */
     useEffect(() => {
         setCurrentArticleIndex(Number(pathname.split('/')[2]));
     }, [param]);
