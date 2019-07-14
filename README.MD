@@ -1,7 +1,7 @@
 # ARTICLES APP
 
 ### DEPLOYED
-[View](https://articlesapp.netlify.com/)
+[View](https://articlesmag.netlify.com/)
 
 ### RUNNING LOCALLY
 
