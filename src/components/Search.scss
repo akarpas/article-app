@@ -1,3 +1,29 @@
 .searchWrapper {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    position: fixed;
+    background-color: lightgray;
+    width: 100vw;
+    padding: 5px 0;
+    top: 19vh;
+}
+
+.search {
     position: relative;
+}
+
+.search > input {
+    width: 300px;
+    height: 20px;
+    border: 1px solid black;
+    outline: none;
+    padding: 5px;
+    font-size: 1.25rem;
+}
+
+@media screen and (min-width: 600px) {
+    .searchWrapper {
+        top: 14vh;
+    }
 }

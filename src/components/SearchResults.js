@@ -2,24 +2,20 @@ import React, { useLayoutEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { formatTitle } from '../utils/format';
-import ARTICLES from '../data/articles.json';
+
 import style from './SearchResults.scss';
+
+import { data } from '../data/articles.json';
 
 const SearchResults = props => {
     const { searchTerm, updateSearchInput } = props;
-    const { data } = ARTICLES;
     const [filteredArticles, setFilteredArticles] = useState([]);
 
     const filterArticles = dataToFilter => {
         return [...dataToFilter]
-            .map((article, index) => {
-                return {
-                    ...article,
-                    index
-                };
-            })
-            .filter(article => {
-                return (
+            .map((article, index) => ({ ...article, index }))
+            .filter(
+                article =>
                     article &&
                     (article.body.toLowerCase().includes(searchTerm) ||
                         article.title.toLowerCase().includes(searchTerm) ||
@@ -28,8 +24,7 @@ const SearchResults = props => {
                                 .toString()
                                 .toLowerCase()
                                 .includes(searchTerm)))
-                );
-            });
+            );
     };
 
     useLayoutEffect(() => {
@@ -39,15 +34,17 @@ const SearchResults = props => {
 
     return (
         <div className={style.resultsContainer}>
-            {filteredArticles.map((article, index) => (
-                <Link
-                    onClick={updateSearchInput}
-                    to={`/article/${article.index}`}
-                    key={article + index}
-                >
-                    {formatTitle(article.title)}
-                </Link>
-            ))}
+            <div className={style.results}>
+                {filteredArticles.map((article, index) => (
+                    <Link
+                        onClick={updateSearchInput}
+                        to={`/article/${article.index}`}
+                        key={article + index}
+                    >
+                        {formatTitle(article.title)}
+                    </Link>
+                ))}
+            </div>
         </div>
     );
 };

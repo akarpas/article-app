@@ -2,13 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { formatTitle } from '../utils/format';
 
+import style from './Header.scss';
+
 const Header = props => {
     const { articleTitle } = props;
     return (
-        <div>
-            <h1>Articles</h1>
+        <header className={style.headerContainer}>
+            <h1>The Articles Magazine</h1>
             <h3>{formatTitle(articleTitle)}</h3>
-        </div>
+        </header>
     );
 };
 

@@ -1,0 +1,28 @@
+.headerContainer {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    background-color: black;
+    color: white;
+    height: 19vh;
+}
+
+header > h1,
+header > h3 {
+    margin: 5px;
+    text-align: center;
+}
+
+header > h1 {
+    border-bottom: 1px solid white;
+}
+
+@media screen and (min-width: 600px) {
+    .headerContainer {
+        height: 14vh;
+    }
+}
