@@ -4,6 +4,9 @@ import PropTypes from 'prop-types';
 
 import style from './Footer.scss';
 
+const NEXT_TEXT = 'Next';
+const PREVIOUS_TEXT = 'Previous';
+
 const Footer = props => {
     const { numberOfArticles, currentArticleIndex, hasArticle } = props;
     const [navigationStatus, setNavigationStatus] = useState({
@@ -36,13 +39,13 @@ const Footer = props => {
                     <div className={style.previous}>
                         {navigationStatus.showPrevious && (
                             <Link to={`/article/${previousPage}`}>
-                                Previous
+                                {PREVIOUS_TEXT}
                             </Link>
                         )}
                     </div>
                     <div className={style.next}>
                         {navigationStatus.showNext && (
-                            <Link to={`/article/${nextPage}`}>Next</Link>
+                            <Link to={`/article/${nextPage}`}>{NEXT_TEXT}</Link>
                         )}
                     </div>
                 </React.Fragment>
