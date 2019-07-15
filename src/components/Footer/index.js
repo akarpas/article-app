@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import style from './Footer.scss';
+import style from './index.scss';
 
 const NEXT_TEXT = 'Next';
 const PREVIOUS_TEXT = 'Previous';

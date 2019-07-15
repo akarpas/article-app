@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import ReactHtmlParser from 'react-html-parser';
-import NoMatch from './NoMatch';
+import NoMatch from '../NoMatch';
 
-import style from './Article.scss';
+import style from './index.scss';
 
 const ENVIRONMENT = process.env.NODE_ENV;
 const IMG_BASE_URL = '<img src="https://cdn2.audiencemedia.com';

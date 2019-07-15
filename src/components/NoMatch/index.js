@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
 
-import style from './NoMatch.scss';
+import style from './index.scss';
 
 const TEXT_NO_EXIST = 'This article does not exist';
 const TEXT_LINK = 'Go Home';
