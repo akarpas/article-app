@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import SearchResults from './SearchResults';
+import SearchResults from '../SearchResults';
 
-import style from './Search.scss';
+import style from './index.scss';
 
 const PLACEHOLDER_TEXT = 'Search Articles';
 

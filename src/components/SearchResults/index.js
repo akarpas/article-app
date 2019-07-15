@@ -1,11 +1,11 @@
 import React, { useLayoutEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { formatTitle } from '../utils/format';
+import { formatTitle } from '../../utils/format';
 
-import style from './SearchResults.scss';
+import style from './index.scss';
 
-import { data } from '../data/articles.json';
+import { data } from '../../data/articles.json';
 
 const SearchResults = props => {
     const { searchTerm, updateSearchInput } = props;

@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { formatTitle } from '../utils/format';
+import { formatTitle } from '../../utils/format';
 
-import style from './Header.scss';
+import style from './index.scss';
 
 const MAIN_TITLE = 'The Articles Magazine';
 
